@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,8 +44,15 @@ namespace AgentExample
                 return newCount;
             });
 
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             ping.Tell("START");
 
+            stopwatch.Stop();
+            Console.WriteLine($"{stopwatch.Elapsed}");
+
+            Console.WriteLine("Press any key to continue. . .");
             Console.ReadKey();
         }
     }
